@@ -42,6 +42,7 @@ constexpr KeyCodeFunctionEntry HANDLERS[] = {
     {"retro_surround_character", &StenoKeyCodeBuffer::RetroSurroundCharacterFunction},
     {"retro_title", &StenoKeyCodeBuffer::RetroTitleCaseFunction},
     {"retro_upper", &StenoKeyCodeBuffer::RetroUpperCaseFunction},
+    {"set_ascii_output", &StenoKeyCodeBuffer::SetAsciiOutputFunction},
     {"set_case", &StenoKeyCodeBuffer::SetCaseFunction},
     {"set_space", &StenoKeyCodeBuffer::SetSpaceFunction},
     {"stitch", &StenoKeyCodeBuffer::StitchFunction},
@@ -841,6 +842,31 @@ bool StenoKeyCodeBuffer::SetCaseFunction(const List<char *> &parameters) {
       state.overrideCaseMode = name.value;
       return true;
     }
+  }
+
+  return false;
+}
+
+bool StenoKeyCodeBuffer::SetAsciiOutputFunction(
+    const List<char *> &parameters) {
+  if (parameters.GetCount() != 2) {
+    return false;
+  }
+
+  if (!executeSideEffects) {
+    return true;
+  }
+
+  if (Str::Eq(parameters[1], "on") || Str::Eq(parameters[1], "true") ||
+      Str::Eq(parameters[1], "1")) {
+    HostLayouts::SetAsciiOutputMode(true);
+    return true;
+  }
+
+  if (Str::Eq(parameters[1], "off") || Str::Eq(parameters[1], "false") ||
+      Str::Eq(parameters[1], "0")) {
+    HostLayouts::SetAsciiOutputMode(false);
+    return true;
   }
 
   return false;

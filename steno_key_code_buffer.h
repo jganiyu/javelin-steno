@@ -132,6 +132,7 @@ public:
   bool RetroTitleCaseFunction(const List<char *> &parameters);
   bool RetroUpperCaseFunction(const List<char *> &parameters);
   bool SetCaseFunction(const List<char *> &parameters);
+  bool SetAsciiOutputFunction(const List<char *> &parameters);
   bool SetSpaceFunction(const List<char *> &parameters);
   bool StitchFunction(const List<char *> &parameters);
   bool StitchLastWordFunction(const List<char *> &parameters);

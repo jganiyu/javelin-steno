@@ -29,6 +29,7 @@ public:
   void Emit(const StenoKeyCodeBuffer &buffer) const {
     Emit(buffer.buffer, buffer.GetCount());
   }
+
 };
 
 //---------------------------------------------------------------------------
