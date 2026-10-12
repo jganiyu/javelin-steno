@@ -127,6 +127,95 @@ void StenoKeyCodeEmitter::EmitterContext::EmitNonAscii(uint32_t unicode) {
     return EmitSequence(*sequence);
   }
 
+  if (unicode == 0x00b4) {
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::E);
+    EmitKeyCode(KeyCode::SPACE);
+    return;
+  }
+
+  switch (unicode) {
+  case 0x00c1:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::E);
+    EmitKeyCode(MODIFIER_L_SHIFT_FLAG | KeyCode::A);
+    return;
+  case 0x00e1:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::E);
+    EmitKeyCode(KeyCode::A);
+    return;
+  case 0x00c9:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::E);
+    EmitKeyCode(MODIFIER_L_SHIFT_FLAG | KeyCode::E);
+    return;
+  case 0x00e9:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::E);
+    EmitKeyCode(KeyCode::E);
+    return;
+  case 0x00cd:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::E);
+    EmitKeyCode(MODIFIER_L_SHIFT_FLAG | KeyCode::I);
+    return;
+  case 0x00ed:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::E);
+    EmitKeyCode(KeyCode::I);
+    return;
+  case 0x00d3:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::E);
+    EmitKeyCode(MODIFIER_L_SHIFT_FLAG | KeyCode::O);
+    return;
+  case 0x00f3:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::E);
+    EmitKeyCode(KeyCode::O);
+    return;
+  case 0x00da:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::E);
+    EmitKeyCode(MODIFIER_L_SHIFT_FLAG | KeyCode::U);
+    return;
+  case 0x00fa:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::E);
+    EmitKeyCode(KeyCode::U);
+    return;
+  case 0x00c2:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::I);
+    EmitKeyCode(MODIFIER_L_SHIFT_FLAG | KeyCode::A);
+    return;
+  case 0x00e2:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::I);
+    EmitKeyCode(KeyCode::A);
+    return;
+  case 0x00ca:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::I);
+    EmitKeyCode(MODIFIER_L_SHIFT_FLAG | KeyCode::E);
+    return;
+  case 0x00ea:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::I);
+    EmitKeyCode(KeyCode::E);
+    return;
+  case 0x00ce:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::I);
+    EmitKeyCode(MODIFIER_L_SHIFT_FLAG | KeyCode::I);
+    return;
+  case 0x00ee:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::I);
+    EmitKeyCode(KeyCode::I);
+    return;
+  case 0x00d4:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::I);
+    EmitKeyCode(MODIFIER_L_SHIFT_FLAG | KeyCode::O);
+    return;
+  case 0x00f4:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::I);
+    EmitKeyCode(KeyCode::O);
+    return;
+  case 0x00db:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::I);
+    EmitKeyCode(MODIFIER_L_SHIFT_FLAG | KeyCode::U);
+    return;
+  case 0x00fb:
+    EmitKeyCode(MODIFIER_L_ALT_FLAG | KeyCode::I);
+    EmitKeyCode(KeyCode::U);
+    return;
+  }
+
   UnicodeScript::instance.ExecuteEmitScript(unicode);
 }
 

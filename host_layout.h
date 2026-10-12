@@ -47,6 +47,7 @@ public:
   static void SetActiveLayout(const HostLayout &layout);
   static bool SetActiveLayout(const char *name);
   static const HostLayout &GetActiveLayout() { return *activeLayout; }
+  static bool SetAsciiOutputMode(bool enabled);
 
   static void AddConsoleCommands(Console &console);
 
@@ -57,6 +58,7 @@ private:
   StaticList<const HostLayout *> layouts;
 
   static const HostLayout *activeLayout;
+  static const HostLayout *previousLayout;
   static const HostLayouts *instance;
 
   static void SetHostLayout_Binding(void *context, const char *commandLine);
